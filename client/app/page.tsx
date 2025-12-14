@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from 'react';
+import { Suspense, useEffect, useState, useRef } from 'react';
 import Timer from '@/components/Game/Timer';
 import BettingGrid from '@/components/Game/BettingGrid';
 import GameHistory from '@/components/Game/GameHistory';
@@ -20,7 +20,7 @@ import MyBetsHistory from '@/components/Game/MyBetsHistory';
 import RewardInfo from '@/components/Home/RewardInfo';
 import GameRules from '@/components/Game/GameRules';
 
-export default function Home() {
+function HomeContent() {
   const { user, loading, logout, refetchUser } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams(); // Needs import
@@ -481,5 +481,13 @@ export default function Home() {
         <RewardInfo />
       </div>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

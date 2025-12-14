@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <div className="min-h-screen bg-background text-foreground pb-20" suppressHydrationWarning={true}>
             {children}
-            <BottomNav />
+            <Suspense fallback={null}>
+              <BottomNav />
+            </Suspense>
           </div>
         </AuthProvider>
       </body>
