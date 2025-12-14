@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #004c97;
+  /* 1xBet Blue */
+  --color-secondary: #f0f4f8;
+  /* Light Blue/Grey background */
+  --color-accent: #66cc33;
+  /* 1xBet Green Accent */
+  --color-card: #ffffff;
+  --color-text-main: #333333;
+  --color-text-light: #888888;
+
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --background: #2a0e0e;
+  --foreground: #ffffff;
+}
+
+body {
+  color: var(--foreground);
+  background: #2a0e0e;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 80px;
+}
