@@ -23,7 +23,7 @@ const AdminPage = () => {
 
     const fetchPending = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/wallet/admin/pending');
+            const res = await axios.get('https://betsite-h7wh.onrender.com/api/wallet/admin/pending');
             setDeposits(res.data);
         } catch (err) {
             console.error(err);
@@ -32,7 +32,7 @@ const AdminPage = () => {
 
     const handleAction = async (id, action) => {
         try {
-            await axios.post('http://localhost:5000/api/wallet/admin/approve', { transactionId: id, action });
+            await axios.post('https://betsite-h7wh.onrender.com/api/wallet/admin/approve', { transactionId: id, action });
             fetchPending();
             alert(`Transaction ${action}ed`);
         } catch (err) {
@@ -42,7 +42,7 @@ const AdminPage = () => {
 
     const handleUserSearch = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/user/admin/search', { query: searchQuery });
+            const res = await axios.post('https://betsite-h7wh.onrender.com/api/user/admin/search', { query: searchQuery });
             setFoundUser(res.data);
         } catch (err) {
             alert('User not found');
@@ -53,7 +53,7 @@ const AdminPage = () => {
     const handleBalanceUpdate = async (type: 'add' | 'deduct') => {
         if (!foundUser || !amount) return;
         try {
-            const res = await axios.post('http://localhost:5000/api/user/admin/balance', {
+            const res = await axios.post('https://betsite-h7wh.onrender.com/api/user/admin/balance', {
                 userId: foundUser._id,
                 amount: parseFloat(amount),
                 type
@@ -69,7 +69,7 @@ const AdminPage = () => {
     const handleFreezeToggle = async () => {
         if (!foundUser) return;
         try {
-            const res = await axios.post('http://localhost:5000/api/user/admin/freeze', { userId: foundUser._id });
+            const res = await axios.post('https://betsite-h7wh.onrender.com/api/user/admin/freeze', { userId: foundUser._id });
             setFoundUser(res.data);
             alert(`User account ${res.data.isFrozen ? 'frozen' : 'activated'}`);
         } catch (err) {

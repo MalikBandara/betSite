@@ -109,7 +109,7 @@ function HomeContent() {
     try {
       // Wait a moment for server to settle
       await new Promise(r => setTimeout(r, 2000));
-      const res = await axios.get('http://localhost:5000/api/game/history');
+      const res = await axios.get('https://betsite-h7wh.onrender.com/api/game/history');
       const history = res.data;
       const result = history.find((h: any) => h.periodId.toString() === betPeriodId.toString());
 
@@ -162,7 +162,7 @@ function HomeContent() {
       if (!user) return alert('Please login');
       if (user.balance < amount) return alert('Insufficient balance');
 
-      await axios.post('http://localhost:5000/api/game/bet', {
+      await axios.post('https://betsite-h7wh.onrender.com/api/game/bet', {
         periodId: currentPeriodId,
         type,
         selection,

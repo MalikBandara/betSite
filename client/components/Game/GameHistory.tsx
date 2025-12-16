@@ -15,7 +15,7 @@ const GameHistory = ({ timeFrame }: { timeFrame: string }) => {
 
     const fetchHistory = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/game/history?timeFrame=${timeFrame}`);
+            const res = await axios.get(`https://betsite-h7wh.onrender.com/api/game/history?timeFrame=${timeFrame}`);
             setHistory(res.data);
         } catch (err) {
             console.error("Failed to fetch history", err);

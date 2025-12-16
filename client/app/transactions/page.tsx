@@ -20,7 +20,7 @@ export default function TransactionsPage() {
 
     const fetchTransactions = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/wallet/history');
+            const res = await axios.get('https://betsite-h7wh.onrender.com/api/wallet/history');
             setTransactions(res.data);
         } catch (err) {
             console.error(err);

@@ -17,7 +17,7 @@ const MyBetsHistory = ({ onClose }: { onClose: () => void }) => {
 
     const fetchMyBets = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/game/my-bets', {
+            const res = await axios.get('https://betsite-h7wh.onrender.com/api/game/my-bets', {
                 headers: { 'x-auth-token': token }
             });
             setBets(res.data);
@@ -62,8 +62,8 @@ const MyBetsHistory = ({ onClose }: { onClose: () => void }) => {
                                         <p className="text-xs text-gray-400 mt-0.5">{new Date(bet.createdAt).toLocaleString()}</p>
                                     </div>
                                     <div className={`px-2 py-1 rounded-lg text-xs font-bold capitalize ${bet.status === 'win' ? 'bg-green-100 text-green-600' :
-                                            bet.status === 'loss' ? 'bg-red-100 text-red-600' :
-                                                'bg-yellow-100 text-yellow-600'
+                                        bet.status === 'loss' ? 'bg-red-100 text-red-600' :
+                                            'bg-yellow-100 text-yellow-600'
                                         }`}>
                                         {bet.status}
                                     </div>
@@ -74,9 +74,9 @@ const MyBetsHistory = ({ onClose }: { onClose: () => void }) => {
                                         <div className="flex flex-col">
                                             <span className="text-[10px] text-gray-400 uppercase font-bold">Selection</span>
                                             <span className={`font-bold capitalize ${bet.type === 'color' ? (
-                                                    bet.selection === 'green' ? 'text-green-500' :
-                                                        bet.selection === 'red' ? 'text-red-500' : 'text-violet-500'
-                                                ) : 'text-gray-800'
+                                                bet.selection === 'green' ? 'text-green-500' :
+                                                    bet.selection === 'red' ? 'text-red-500' : 'text-violet-500'
+                                            ) : 'text-gray-800'
                                                 }`}>
                                                 {bet.selection}
                                             </span>

@@ -9,7 +9,7 @@ const Timer = ({ onTimeUpdate }) => {
     const [periodId, setPeriodId] = useState('');
 
     useEffect(() => {
-        socket = io('http://localhost:5000');
+        socket = io('https://betsite-h7wh.onrender.com');
 
         socket.on('timer_update', (data) => {
             // data = { timeFrame, time, periodId, isBettingOpen }

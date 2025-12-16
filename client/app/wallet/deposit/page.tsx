@@ -36,7 +36,7 @@ export default function DepositPage() {
     const handleDeposit = async (e: any) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/wallet/deposit', { amount, proof });
+            await axios.post('https://betsite-h7wh.onrender.com/api/wallet/deposit', { amount, proof });
             alert('Deposit Request Submitted!');
             setAmount('');
             setProof('');

@@ -23,7 +23,7 @@ export default function WithdrawPage() {
         if (parseFloat(amount) > user.balance) return alert('Insufficient Balance');
 
         try {
-            await axios.post('http://localhost:5000/api/wallet/withdraw', {
+            await axios.post('https://betsite-h7wh.onrender.com/api/wallet/withdraw', {
                 amount: parseFloat(amount),
                 bankDetails: walletAddress
             });

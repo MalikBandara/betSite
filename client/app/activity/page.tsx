@@ -16,7 +16,7 @@ const ActivityPage = () => {
 
     const fetchBets = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/game/my-bets');
+            const res = await axios.get('https://betsite-h7wh.onrender.com/api/game/my-bets');
             setBets(res.data);
         } catch (err) {
             console.error(err);
